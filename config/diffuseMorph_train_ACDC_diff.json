@@ -1,0 +1,86 @@
+{
+    "name": "DPMSWIFT_diff",
+    "phase": "train",
+    "gpu_ids": [
+       7
+    ],
+    "distributed": true,
+    "display_port": 8097,
+    "path": {
+        "log": "logs",
+        "tb_logger": "tb_logger",
+        "results": "results",
+        "checkpoint": "checkpoint",
+        "resume_state": null //the deirectory of trained models  //the deirectory of trained models
+    },
+    "datasets": {
+        "centered": true,
+        "train": {
+            "name": "3D",
+            "dataroot": "./toy_sample/3d/",
+            "batch_size": 1,
+            "num_workers": 8,
+            "use_shuffle": true
+        }
+    },
+    "model": {
+        "netDim": 3,
+        "which_model_G": "ddpm",
+        "finetune_norm": false,
+        "swin": {
+            "img_size": [32,128,128],
+            "in_channel": 3,
+            "patch_size" : 2,
+            "out_channel": 1,
+            "embed_dim": 48,
+            "depths": [2, 2, 4, 2],
+            "num_heads": [4, 4, 8, 8],
+            "window_size": [1, 4, 4],
+            "drop_path_rate":0.3,
+            "qkv_bias": true,
+            "inner_channel": 8,
+            "channel_multiplier": [
+                1,
+                2,
+                4,
+                4
+            ],
+            "attn_res": [
+                10
+            ],
+            "res_blocks": 1,
+            "dropout": 0 //.2
+        },
+        "beta_schedule": {
+            "train": {
+                "schedule": "linear",
+                "n_timestep": 2000,
+                "linear_start": 1e-6,
+                "linear_end": 1e-2
+            }
+        },
+        "diffusion": {
+            "image_size": [128, 128, 32],
+            "conditional": true
+        },
+        "field": {
+            "input_size": [32,128,128],
+            "in_channel": 2,
+            "encoder_nc": [16,32,32,32,32],
+            "decoder_nc": [32,32,32,8,8,3],
+            "int_steps":7,
+            "int_downsize":1
+        },
+        "loss_lambda": 20
+    },
+    "train": {
+        "n_epoch": 800,
+        "val_freq": 50,
+        "save_checkpoint_epoch": 5,
+        "print_freq": 1,
+        "optimizer": {
+            "type": "adam",
+            "lr": 2e-4
+        }
+    }
+}
