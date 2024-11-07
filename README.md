@@ -1,6 +1,6 @@
 ﻿<img src="./img/model.png">
 
-# DPMSWIFT
+# DiST-DR
 
 This repository is the official implementation of "DPMSWIFT: Diffusion Probabilistic Model-based Swin Transformer for Medical Image Registration".
 
@@ -15,13 +15,13 @@ In our research, we utilized the following dataset：
 
 ## Training
 
-To train DPMSWIFT, run this command:
+To train DiST, run this command:
 
 ```
 python main_ACDC.py -p train -c config/diffuseMorph_train_ACDC.json
 ```
 
-To train DPMSWIFT-diff, run this command:
+To train DiST-DR, run this command:
 
 ```
 python main_ACDC.py -p train -c config/diffuseMorph_train_ACDC_diff.json
@@ -29,13 +29,13 @@ python main_ACDC.py -p train -c config/diffuseMorph_train_ACDC_diff.json
 
 ## Test
 
-To test DPMSWIFT, run this command:
+To test DiST, run this command:
 
 ```
 python main_ACDC.py -p test -c config/diffuseMorph_test_ACDC.json
 ```
 
-To test DPMSWIFT-diff, run this command:
+To test DiST-DR, run this command:
 
 ```
 python main_ACDC.py -p test -c config/diffuseMorph_test_ACDC_diff.json
