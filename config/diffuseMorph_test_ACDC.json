@@ -1,5 +1,5 @@
 {
-    "name": "DPMSWIFT",
+    "name": "DiST",
     "phase": "test",
     "gpu_ids": [
         0

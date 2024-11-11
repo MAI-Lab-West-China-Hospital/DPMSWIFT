@@ -1,5 +1,5 @@
 {
-    "name": "DPMSWIFT_diff",
+    "name": "DiST-DR",
     "phase": "test",
     "gpu_ids": [
         7

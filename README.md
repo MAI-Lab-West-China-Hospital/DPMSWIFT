@@ -2,7 +2,7 @@
 
 # DiST-DR
 
-This repository is the official implementation of "DPMSWIFT: Diffusion Probabilistic Model-based Swin Transformer for Medical Image Registration".
+This repository is the official implementation of "DiST-DR: Diffusion-Driven Swin Transformer for Rapid Non-linear Volumetric Medical Image Registration with Diffeomorphic Deformations".
 
 ## Requirements
   * OS: Ubuntu
